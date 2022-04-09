@@ -1,0 +1,68 @@
+[SETTINGS]
+{
+  "Name": "Unhasher V1.0",
+  "SuggestedBots": 200,
+  "MaxCPM": 0,
+  "LastModified": "2021-08-14T12:49:56.9043635+04:30",
+  "AdditionalInfo": "",
+  "Author": "Sir Alidadi",
+  "Version": "1.4.4 [Anomaly]",
+  "IgnoreResponseErrors": false,
+  "MaxRedirects": 8,
+  "NeedsProxies": true,
+  "OnlySocks": false,
+  "OnlySsl": false,
+  "MaxProxyUses": 0,
+  "BanProxyAfterGoodStatus": false,
+  "EncodeData": false,
+  "AllowedWordlist1": "MailPass",
+  "AllowedWordlist2": "UserPass",
+  "DataRules": [],
+  "CustomInputs": [],
+  "CaptchaUrl": "",
+  "Base64": "",
+  "Grayscale": false,
+  "RemoveLines": false,
+  "RemoveNoise": false,
+  "Dilate": false,
+  "Threshold": 1.0,
+  "DiffKeep": 0.0,
+  "DiffHide": 0.0,
+  "Saturate": false,
+  "Saturation": 0.0,
+  "Transparent": false,
+  "Contour": false,
+  "OnlyShow": false,
+  "ContrastGamma": false,
+  "Contrast": 1.0,
+  "Gamma": 1.0,
+  "Brightness": 1.0,
+  "RemoveLinesMin": 0,
+  "RemoveLinesMax": 0,
+  "Crop": false,
+  "ForceHeadless": false,
+  "AlwaysOpen": false,
+  "AlwaysQuit": false,
+  "DisableNotifications": false,
+  "CustomUserAgent": "",
+  "RandomUA": false,
+  "CustomCMDArgs": ""
+}
+
+[SCRIPT]
+#GET REQUEST GET "http://www.nitrxgen.net/md5db/<PASS>.json" 
+  
+  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "Pragma: no-cache" 
+  HEADER "Accept: */*" 
+
+KEYCHECK 
+  KEYCHAIN Failure OR 
+    KEY "found\":false" 
+  KEYCHAIN Success OR 
+    KEY "found\":true" 
+
+#PASSWORD PARSE "<SOURCE>" JSON "pass" CreateEmpty=FALSE -> CAP "PASSWORD" 
+
+UTILITY File "Unhasher @SirAlidadi.txt" Append "<USER>:<PASSWORD>\\n" 
+
